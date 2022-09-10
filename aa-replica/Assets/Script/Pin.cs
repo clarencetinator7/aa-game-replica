@@ -20,7 +20,13 @@ public class Pin : MonoBehaviour
         if (col.CompareTag("Rotator"))
         {
             isPinned = true;
+            Score.pinCount++;
             transform.SetParent(col.transform);
+        } 
+        else if (col.CompareTag("Pin"))
+        {
+            // END GAME
+            FindObjectOfType<GameManager>().endGame();
         }
     }
     
